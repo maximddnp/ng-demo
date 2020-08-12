@@ -2,4 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.1.0](https://github.com/maximddnp/ng-demo/compare/v9.0.0...v9.1.0) (2020-08-12)
+
+
+### Features
+
+* changed Jenkinsfile ([5ae63bb](https://github.com/maximddnp/ng-demo/commit/5ae63bba6fbcbca46d6028ada84a5e4f548dd205))
+
+
+### Bug Fixes
+
+* added user config ([39c0ab2](https://github.com/maximddnp/ng-demo/commit/39c0ab29fc833e9009e13d89ae2edd30cc1bbd17))
+* changed Jenkinsfile agent ([2d4b1a6](https://github.com/maximddnp/ng-demo/commit/2d4b1a654cfe6cd40a843ef8a3d1c4f1ab251a9f))
+* changed Jenkinsfile agent ([3ac11d4](https://github.com/maximddnp/ng-demo/commit/3ac11d4d036216e46fa18f6c91fe77eee892d62a))
+
 ## 9.0.0 (2020-08-12)
