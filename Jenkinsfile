@@ -14,6 +14,8 @@ pipeline {
     stage('Stage release') {
       steps {
         sh """
+            git config --global user.email "maximapr1@gmail.com"
+            git config --global user.name "Max"
            npm run release
         """
       }
