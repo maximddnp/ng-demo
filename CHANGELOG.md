@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.2.0](https://github.com/maximddnp/ng-demo/compare/v9.1.0...v9.2.0) (2020-08-12)
+
+
+### Features
+
+* added comment ([51efd13](https://github.com/maximddnp/ng-demo/commit/51efd13f2f95689973fa41b297d0ba4bbbccab69))
+
 ## [9.1.0](https://github.com/maximddnp/ng-demo/compare/v9.0.0...v9.1.0) (2020-08-12)
 
 
