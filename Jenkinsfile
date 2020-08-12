@@ -1,42 +1,29 @@
-node {
-    def nodeHome = tool name: 'node-12.13.0', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
-    env.PATH = "${nodeHome}/bin:${env.PATH}"
-
-    stage('check tools') {
-        sh "node -v"
-        sh "npm -v"
+pipeline {
+  agent {
+    docker {
+      image 'node:6-alpine'
+      args '-p 3000:3000'
     }
-
-    stage('checkout') {
-        checkout scm
+  }
+  stages {
+    stage('Build') {
+      steps {
+        sh 'npm install'
+      }
     }
-
-    stage('npm install') {
-        sh "npm install"
+    stage('Stage release') {
+      steps {
+        sh """
+           npm run release
+        """
+      }
     }
-
-    stage('unit tests') {
-        sh "ng test"
+    stage('Stage push') {
+      steps {
+        sh """
+           npm run release:tags
+        """
+      }
     }
-
-    stage('protractor tests') {
-        sh "ng e2e"
-    }
-
-    stage('deploying') {
-        sh '''
-        # exit 1 on errors
-        set -e
-        # deal with remote
-        echo "Checking if remote exists..."
-        if ! git ls-remote heroku; then
-          echo "Adding heroku remote..."
-          git remote add heroku https://git.heroku.com/evening-meadow-46789.git
-        fi
-        # push only origin/master to heroku/master - will do nothing if
-        # master doesn't change.
-        echo "Updating heroku master branch..."
-        git push heroku origin/master:master
-        '''
-    }
+  }
 }
