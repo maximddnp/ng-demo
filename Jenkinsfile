@@ -29,6 +29,11 @@ pipeline {
         """
       }
     }
+    stage('cat ch') {
+      steps {
+        sh 'cat ./CHANGELOG.md'
+      }
+    }
 //    git push --follow-tags origin ${BRANCH_NAME}
   }
 }
