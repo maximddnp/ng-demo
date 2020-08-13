@@ -23,7 +23,7 @@ pipeline {
             git config --global user.name "Max"
            npm run release
            git status
-           git push --follow-tags origin HEAD
+           git push --follow-tags origin ${BRANCH_NAME}
         """
       }
     }
