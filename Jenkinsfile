@@ -4,31 +4,27 @@ pipeline {
   tools {nodejs "node"}
 
   stages {
-    stage('Example') {
+//    stage('Example') {
+//      steps {
+//        sh 'npm --version'
+//      }
+//    }
+    stage('Build') {
       steps {
-        sh 'npm --version'
+        sh 'npm install'
       }
     }
-//    stage('Build') {
-//      steps {
-//        sh 'npm install'
-//      }
-//    }
-//    stage('Stage release') {
-//      steps {
-//        sh """
-//            git config --global user.email "maximapr1@gmail.com"
-//            git config --global user.name "Max"
-//           npm run release
-//        """
-//      }
-//    }
-//    stage('Stage push') {
-//      steps {
-//        sh """
-//           npm run release:tags
-//        """
-//      }
-//    }
+    stage('Stage release') {
+      steps {
+        sh """
+            git checkout ${BRANCH_NAME}
+            git config --global user.email "maximapr1@gmail.com"
+            git config --global user.name "Max"
+           npm run release
+           git status
+           git push --follow-tags origin HEAD
+        """
+      }
+    }
   }
 }
