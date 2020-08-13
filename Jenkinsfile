@@ -22,6 +22,7 @@ pipeline {
             git config --global user.email "maximapr1@gmail.com"
             git config --global user.name "Max"
            npm run release
+           git pull
            git status
            git push --follow-tags origin ${BRANCH_NAME}
         """
