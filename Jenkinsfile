@@ -8,6 +8,7 @@ pipeline {
       steps {
 //        checkout scm
 //        sh "git checkout ${BRANCH_NAME}"
+        checkout([$class: 'GitSCM', branches: [[name: '*/master/*']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'LocalBranch', localBranch: "**"]], submoduleCfg: []])
         sh "git status"
       }
     }
