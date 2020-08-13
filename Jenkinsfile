@@ -6,8 +6,8 @@ pipeline {
   stages {
     stage('checkout') {
       steps {
-        checkout scm
-        sh "git checkout ${BRANCH_NAME}"
+//        checkout scm
+//        sh "git checkout ${BRANCH_NAME}"
         sh "git status"
       }
     }
