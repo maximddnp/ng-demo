@@ -19,14 +19,16 @@ pipeline {
     stage('Stage release') {
       steps {
         sh """
-            git config --global user.email "maximapr1@gmail.com"
+            git config --global user.email "maxim.d.672@gmail.com"
             git config --global user.name "Max"
            npm run release
            git pull
            git status
-           git push --follow-tags origin ${BRANCH_NAME}
+           git log -n 10 --pretty=format:"%h %s" --graph
+
         """
       }
     }
+//    git push --follow-tags origin ${BRANCH_NAME}
   }
 }
